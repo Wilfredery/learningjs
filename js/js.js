@@ -1,12 +1,21 @@
-const botn = document.querySelector('#boton');
-boton.addEventListener('click', () => {
-    Notification.requestPermission()
-        .then(resultado => console.log(`El resultado es ${resultado}`));
-})
+async function getEmpleados() {
+    const archivo ='empleados.json';
+    // fetch(archivo)
+    //     .then(resultado =>  resultado.json())
+    //     .then( datos => {
+    //         // console.log(datos.empleados);
+    //         const {empleados} = datos;
+    //         // console.log(empleados);
 
-if (Notification.permission == 'granted') {
-    new Notification('Esto es una notificacion', {
-        icon: 'img/onepiece.jpg',
-        body: 'La vuelta es Dios.'
-    })
+    //         empleados.forEach(empleado => {
+    //             console.log(empleado.id);
+    //             console.log(empleado.nombre);
+    //             console.log(empleado.puesto);
+    //         });
+    //     })
+
+    const result = await fetch(archivo);
+    const datos = await result.json();
+    console.log(datos);
 }
+getEmpleados();

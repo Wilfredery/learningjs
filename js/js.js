@@ -1,7 +1,12 @@
-function sum(num1 = 0, num2 = 0) {
-    console.log (num1 + num2);
+const botn = document.querySelector('#boton');
+boton.addEventListener('click', () => {
+    Notification.requestPermission()
+        .then(resultado => console.log(`El resultado es ${resultado}`));
+})
+
+if (Notification.permission == 'granted') {
+    new Notification('Esto es una notificacion', {
+        icon: 'img/onepiece.jpg',
+        body: 'La vuelta es Dios.'
+    })
 }
-
-sum(10);
-
-
